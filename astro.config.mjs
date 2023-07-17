@@ -2,7 +2,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import { defineConfig } from 'astro/config';
-
+import vercelStatic from '@astrojs/vercel/static';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import image from '@astrojs/image';
@@ -18,6 +18,7 @@ export default defineConfig({
   base: SITE.basePathname,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
   output: 'static',
+  adapter: vercelStatic(),
   integrations: [
     tailwind({
       config: {
@@ -48,7 +49,6 @@ export default defineConfig({
       logger: 1,
     }),
   ],
-
   vite: {
     resolve: {
       alias: {
