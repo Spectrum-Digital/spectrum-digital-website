@@ -1,0 +1,30 @@
+---
+import { Image } from '@astrojs/image/components';
+import SpectrumImage from '~/assets/images/spectrum.png';
+---
+
+<section id="spectrum-section" class="w-full overflow-x-hidden">
+  <div class="relative w-[200vw] h-[calc(100vh-5.5rem)] left-[calc(-50vw+50%)]">
+    <Image
+      id="spectrum-bg"
+      class="h-full object-fill object-center"
+      src={SpectrumImage}
+      alt="Spectrum Digital"
+      loading="eager"
+      format="png"
+    />
+  </div>
+  <slot name="arrow-down" />
+</section>
+
+<script>
+  const section = document.getElementById('spectrum-section');
+  const background = document.getElementById('spectrum-bg');
+
+  if (section && background) {
+    section.addEventListener('mousemove', (e) => {
+      const x = e.clientX;
+      background.style.transform = `translateX(${-x}px)`;
+    });
+  }
+</script>

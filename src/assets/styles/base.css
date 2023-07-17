@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .text-page {
+    color: var(--aw-color-text-page);
+  }
+
+  .bg-light {
+    background-color: #ffffff;
+  }
+
+  .bg-dark {
+    background-color: #131313;
+  }
+
+  .bg-gray {
+    background-color: #484848;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded shadow-md border bg-transparent font-medium text-center text-base text-page leading-snug transition py-2 px-4 md:px-8 ease-in duration-200 text-slate-300 border-slate-500 hover:bg-slate-800 hover:border-slate-800;
+  }
+}

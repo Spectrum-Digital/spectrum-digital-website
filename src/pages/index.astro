@@ -1,0 +1,70 @@
+---
+import { Icon } from 'astro-icon';
+import { SITE } from '~/config';
+import Spectrum from '~/components/Spectrum.astro';
+import Header from '~/components/Header.astro';
+import HeaderSticky from '~/components/HeaderSticky.astro';
+import PageLayout from '~/components/common/PageLayout.astro';
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+};
+---
+
+<PageLayout {meta}>
+  <!-- Sticky Navigation -->
+  <nav class="h-0 sticky float-right pr-6 top-0 z-50" aria-label="Contact">
+    <ul class="flex flex-row items-center h-11">
+      <li>
+        <a class="text-lg" href="#">let's talk</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Initial Header -->
+  <Header />
+
+  <!-- Spectrum Animation -->
+  <Spectrum>
+    <div class="grid grid-cols-3 h-11 w-full align-middle px-6" slot="arrow-down">
+      <div class="text-lg justify-self-start leading-[2.75rem]">Full spectrum web3 digital agency</div>
+      <a
+        class="flex flex-row h-full justify-center items-center hover:text-slate-400 hover:cursor-pointer"
+        href="#content"
+      >
+        <Icon name="radix-icons:double-arrow-down" class="w-5 bounce" />
+      </a>
+    </div>
+  </Spectrum>
+
+  <!-- Sticky Header -->
+  <HeaderSticky />
+
+  <div id="content" class="relative -top-[2.75rem] pt-[2.75rem]">
+    <!-- Our Introduction -->
+    <section class="h-[calc(100vh-2.75rem)]">introduction goes here</section>
+  </div>
+</PageLayout>
+
+<style>
+  .bounce {
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-12px);
+    }
+    60% {
+      transform: translateY(-8px);
+    }
+  }
+</style>

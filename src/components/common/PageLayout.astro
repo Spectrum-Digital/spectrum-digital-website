@@ -1,0 +1,19 @@
+---
+import Layout from './BaseLayout.astro';
+import Footer from '~/components/Footer.astro';
+import { MetaSEO } from '~/types';
+
+export interface Props {
+  class?: string;
+  meta?: MetaSEO;
+}
+
+const { meta, class: className } = Astro.props;
+---
+
+<Layout {meta} class:list={['', className]}>
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</Layout>

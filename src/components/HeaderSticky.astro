@@ -1,0 +1,22 @@
+---
+import { Image } from '@astrojs/image/components';
+import { getHomePermalink } from '~/utils/permalinks';
+import SpectrumImage from '~/assets/images/spectrum.png';
+import Logo from './Logo.astro';
+
+export interface Props {
+  class?: string;
+  showHomePermaLink?: boolean;
+}
+
+const { class: className, showHomePermaLink = false } = Astro.props;
+---
+
+<header class:list={[className, 'sticky top-0 grid grid-cols-3 h-11 px-6 w-full align-middle z-40 bg-dark']}>
+  <a class="text-lg justify-self-start leading-[2.75rem]" href={showHomePermaLink ? getHomePermalink() : '#'}>
+    <Logo />
+  </a>
+  <div class="flex flex-row h-full justify-center items-center">
+    <Image class="w-36" src={SpectrumImage} alt="Spectrum Digital" loading="lazy" format="png" />
+  </div>
+</header>

@@ -1,0 +1,9 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<footer class:list={[className, '']}>no rights reserved</footer>

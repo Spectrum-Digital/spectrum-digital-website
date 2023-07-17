@@ -1,0 +1,35 @@
+---
+import '~/assets/styles/base.css';
+
+import CustomStyles from '~/components/common/CustomStyles.astro';
+import MetaTags from '~/components/common/MetaTags.astro';
+import BasicScripts from '~/components/common/BasicScripts.astro';
+
+import { MetaSEO } from '~/types';
+import { SITE } from '~/config';
+
+export interface Props {
+  meta?: MetaSEO;
+}
+
+const { meta = {} } = Astro.props;
+const { language = 'en', textDirection = 'ltr' } = SITE;
+---
+
+<!DOCTYPE html>
+<html lang={language} dir={textDirection} class="2xl:text-[20px]">
+  <head>
+    <MetaTags {...meta} />
+    <CustomStyles />
+  </head>
+
+  <body class="relative antialiased text-page bg-dark text-white tracking-tight">
+    <slot />
+    <BasicScripts />
+    <style is:global>
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+---
+import { getHomePermalink } from '~/utils/permalinks';
+import Logo from './Logo.astro';
+
+export interface Props {
+  class?: string;
+  showHomePermaLink?: boolean;
+}
+
+const { class: className, showHomePermaLink = false } = Astro.props;
+---
+
+<header class:list={[className, 'flex flex-row items-center h-11 w-full px-6 justify-left']}>
+  <a class="text-lg" href={showHomePermaLink ? getHomePermalink() : '#'}>
+    <Logo />
+  </a>
+</header>
