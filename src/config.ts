@@ -19,12 +19,12 @@ type Config = {
 const CONFIG: Config = {
   name: 'SpectrumDigital',
 
-  origin: 'https://spectrumdigital.vercel.app',
+  origin: 'https://spectrum-digital-website.vercel.app',
   basePathname: '/',
   trailingSlash: false,
 
-  title: 'SpectrumDigital - Autism at its finest',
-  description: 'Building Web3 solutions for autistic communties.',
+  title: 'SpectrumDigital - Autism meets Web3',
+  description: 'Build & Design Web3 Products.',
   defaultImage: defaultImage,
 
   defaultTheme: 'dark', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
