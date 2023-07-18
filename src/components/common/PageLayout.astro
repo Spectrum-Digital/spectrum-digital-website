@@ -1,6 +1,5 @@
 ---
 import Layout from './BaseLayout.astro';
-import Footer from '~/components/Footer.astro';
 import { MetaSEO } from '~/types';
 
 export interface Props {
@@ -15,5 +14,5 @@ const { meta, class: className } = Astro.props;
   <main>
     <slot />
   </main>
-  <Footer />
+  <slot name="footer" />
 </Layout>

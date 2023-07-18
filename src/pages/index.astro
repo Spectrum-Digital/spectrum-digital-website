@@ -5,6 +5,7 @@ import Spectrum from '~/components/Spectrum.astro';
 import Header from '~/components/Header.astro';
 import HeaderSticky from '~/components/HeaderSticky.astro';
 import PageLayout from '~/components/common/PageLayout.astro';
+import Footer from '~/components/Footer.astro';
 
 const meta = {
   title: SITE.title,
@@ -28,9 +29,11 @@ const meta = {
   <!-- Spectrum Animation -->
   <Spectrum>
     <div class="grid grid-cols-3 h-11 w-full align-middle px-6" slot="arrow-down">
-      <div class="text-lg justify-self-start leading-[2.75rem]">Full spectrum web3 digital agency</div>
+      <div class="text-lg justify-self-start leading-[2.75rem] mix-blend-exclusion">
+        Full spectrum web3 digital agency
+      </div>
       <a
-        class="flex flex-row h-full justify-center items-center hover:text-slate-400 hover:cursor-pointer"
+        class="flex flex-row h-full justify-center items-center text-slate-950 hover:text-slate-700 hover:cursor-pointer"
         href="#content"
       >
         <Icon name="radix-icons:double-arrow-down" class="w-5 bounce" />
@@ -41,10 +44,13 @@ const meta = {
   <!-- Sticky Header -->
   <HeaderSticky />
 
-  <div id="content" class="relative -top-[2.75rem] pt-[2.75rem]">
+  <div id="content" class="relative -top-[2.75rem] pt-[2.75rem] snap-start">
     <!-- Our Introduction -->
     <section class="h-[calc(100vh-2.75rem)]">introduction goes here</section>
   </div>
+
+  <!-- Footer -->
+  <Footer class="snap-end" slot="footer" />
 </PageLayout>
 
 <style>

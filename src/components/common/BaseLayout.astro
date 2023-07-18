@@ -9,15 +9,16 @@ import { MetaSEO } from '~/types';
 import { SITE } from '~/config';
 
 export interface Props {
+  class?: string;
   meta?: MetaSEO;
 }
 
-const { meta = {} } = Astro.props;
+const { meta = {}, class: className } = Astro.props;
 const { language = 'en', textDirection = 'ltr' } = SITE;
 ---
 
 <!DOCTYPE html>
-<html lang={language} dir={textDirection} class="2xl:text-[20px]">
+<html lang={language} dir={textDirection} class:list={[className, '2xl:text-[20px]']}>
   <head>
     <MetaTags {...meta} />
     <CustomStyles />
@@ -29,6 +30,29 @@ const { language = 'en', textDirection = 'ltr' } = SITE;
     <style is:global>
       img {
         content-visibility: auto;
+      }
+
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        scroll-behavior: smooth;
+        scroll-snap-type: y proximity;
+      }
+
+      ::-webkit-scrollbar-track {
+        background-color: #131313;
+      }
+
+      ::-webkit-scrollbar {
+        width: 10px;
+        background-color: inherit;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: #000000;
+        border: 2px solid #555555;
+        border-radius: 5px;
       }
     </style>
   </body>

@@ -3,8 +3,8 @@ import { Image } from '@astrojs/image/components';
 import SpectrumImage from '~/assets/images/spectrum.png';
 ---
 
-<section id="spectrum-section" class="w-full overflow-x-hidden">
-  <div class="relative w-[200vw] h-[calc(100vh-5.5rem)] left-[calc(-50vw+50%)]">
+<section id="spectrum-section" class="relative w-full overflow-x-hidden">
+  <div class="relative w-[200vw] h-[calc(100vh-2.75rem)] left-[calc(-50vw+50%)]">
     <Image
       id="spectrum-bg"
       class="h-full object-fill object-center"
@@ -14,7 +14,9 @@ import SpectrumImage from '~/assets/images/spectrum.png';
       format="png"
     />
   </div>
-  <slot name="arrow-down" />
+  <div class="absolute bottom-0 w-full h-[2.75rem]">
+    <slot name="arrow-down" />
+  </div>
 </section>
 
 <script>
